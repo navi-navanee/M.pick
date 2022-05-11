@@ -1,0 +1,50 @@
+
+        <main class="main">
+            <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">My Orders<span>Shop</span></h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
+            <div style="margin: 5rem;">
+        
+                <table class="table">
+                    <thead class="thead-dark text-center">
+                        <tr>
+        
+                            <th scope="col">Date</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Pincode</th>
+                            <th scope="col">Mobile</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Payment</th>
+                            <th scope="col">Status</th>
+                            <th class="text-center" scope="col">Option</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        {{#each orders}}
+                        <tr>
+                            <td>{{this.date}}</td>
+                            <td>{{this.deliveryDetails.address}}</td>
+                            <td>{{this.deliveryDetails.pincode}}</td>
+                            <td>{{this.deliveryDetails.mobile}}</td>
+                            <td>{{this.totalAmount}}</td>
+                            <td>{{this.paymentMethod}}</td>
+                            <td>{{this.status}}</td>
+                            <td>
+                                {{#if cancel}}
+                                <a class="btn btn-info btn-sm " target="__blank" href="/view-order?id={{this._id}}">View Order</a>
+
+                                {{else}}
+                                    <a onclick="removeOrder('{{this._id}}','{{this.userId}}','{{this.totalAmount}}','{{this.paymentMethod}}','{{this.status}}')" class="btn btn-danger btn-sm " target="__blank" >Cancel Order</a>
+                               
+                                <a class="btn btn-info btn-sm " target="__blank" href="/view-order?id={{this._id}}">View Order</a>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </main>

@@ -1,0 +1,50 @@
+
+        <main class="main">
+            <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">My Orders<span>Shop</span></h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
+            <div style="margin: 5rem;">
+        
+                <table class="table">
+                    <thead class="thead-dark text-center">
+                        <tr>
+        
+                            <th scope="col">Date</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Status</th>
+                            <th class="text-center" scope="col">Option</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        {{#each orders}}
+                        <tr>
+                            <td>{{this.date}}</td>
+                            <td>{{this.deliveryDetails.address}},{{this.deliveryDetails.pincode}} <br>{{this.deliveryDetails.mobile}} </td>
+                            <td>{{this.totalAmount}} <br>{{this.paymentMethod}} </td>
+                            <td>{{this.status}}</td>
+                            <td>
+                               
+                                <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
+    {{this.status}}
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=placed">placed</a>
+    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=canceled">canceled</a>
+    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=shipped">shipped</a>
+     <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=delivered">Delivered</a>
+  </div>
+</div>
+                            
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </main>

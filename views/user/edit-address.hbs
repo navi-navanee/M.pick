@@ -1,0 +1,47 @@
+<form class="container" action="/update-address" method="post" id="editNewAddress-form">
+    <div class="row">
+        <div class="col-lg-9">
+            <h2 class="checkout-title">Edit address</h2><!-- End .checkout-title -->
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Full Name *</label>
+                    <input type="text" id="" name="name" class="form-control" required  value="{{address.name}}">
+                </div><!-- End .col-sm-6 -->
+            </div><!-- End .row -->
+
+            <label>Street address *</label>
+            <input type="text" id="" name="address" class="form-control" placeholder="House number and Street name" required  value="{{address.address}}">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Town / City *</label>
+                    <input type="text" id="" name="town" class="form-control"  value="{{address.town}}">
+                </div><!-- End .col-sm-6 -->
+            </div><!-- End .row -->
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Postcode / ZIP *</label>
+                    <input type="text" id="" name="pincode" class="form-control"  value="{{address.pincode}}">
+                </div><!-- End .col-sm-6 -->
+
+                <div class="col-sm-6">
+                    <label>Phone *</label>
+                    <input type="tel" id="" name="phone" class="form-control"  value="{{address.phone}}">
+                </div><!-- End .col-sm-6 -->
+            </div><!-- End .row -->
+            <div>
+                <label>Email address *</label>
+                <input type="email" id="" name="email" class="form-control"  value="{{address.email}}">
+                <input type="text" id="" name="id" class="form-control"  value="{{address._id}}" hidden>
+            </div>
+        </div>
+    </div>
+     
+    <button type="submit" class="btn btn-primary float-middle">Submit</button>
+</form>
+
+
+
+
+
+

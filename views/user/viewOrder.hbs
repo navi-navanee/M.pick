@@ -1,0 +1,30 @@
+
+
+    <section class="trending-product section" style="margin-top: 12px;">
+        <div class="container">
+            <div class="row">
+            <div class="row">
+              {{#each orders}}
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Product -->
+                    <div class="single-product">
+                        <div class="product-image">
+                            <img src="/product-images/{{product._id}}.jpg" class="card-img-top" alt="Product image">
+                        </div>
+                        <div class="product-info">
+                            <span class="category">{{product.Category}}</span>
+                            <h4 class="title">
+                                <a href="/productdetails?id={{product._id}}">{{product.Name}}</a>
+                            </h4>
+                            <div class="price">
+                                <span> ₹ {{product.Price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Product -->
+                </div>
+              {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>

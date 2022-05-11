@@ -1,0 +1,47 @@
+<div class="form-box mt-5">
+  <div class="form-tab">
+    <h2 class="text-centre">Otp Login</h2>
+    <div class="tab-content" id="tab-content-5">
+      <div
+        class="tab-pane fade show active"
+        id="signin"
+        role="tabpanel"
+        aria-labelledby="signin-tab"
+      >
+        <form id="loginOtp" action="/otpconform" method="post">
+        {{#if noUser}}
+        <p style="color: red;" class="error">User Not Exists</p>
+        {{/if}}
+        {{#if userblock}}
+        <p style="color: red;">User blocked by admin</p>
+        {{/if}}
+         {{#if otperr}}
+        <p style="color: red;">Invalid otp</p>
+        {{/if}}
+       
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              name="number"
+              placeholder="Phonenumber"
+            />
+
+          </div>
+     
+    
+          <button
+            type="submit"
+            class="btn btn-primary text-center"
+          >submit</button>
+          {{! <a href="/adminlogin" class="btn btn-primary">Admin login</a> }}
+
+        </form>
+
+      </div><!-- End .form-footer -->
+
+    </div><!-- .End .tab-pane -->
+  </div><!-- End .tab-content -->
+</div><!-- End .form-tab -->

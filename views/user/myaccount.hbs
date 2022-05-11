@@ -1,0 +1,168 @@
+<div class="container-fluid mt-4">
+  <div class="main-body">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+    </nav>
+    <!-- /Breadcrumb -->
+    <div class="row gutters-sm">
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle"
+                width="150">
+              <div class="mt-3">
+                <h4>{{profile.Name}}</h4>
+                {{!-- <button class="btn btn-primary">Follow</button> --}}
+                {{!-- <button class="btn btn-outline-primary" href="/add-address" style="color:black;">ADD
+                  ADDRESS</button> --}}
+                <a class="btn btn-outline-primary" target="__blank" style="color:black;" href="/add-address">ADD
+                  ADDRESS</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{profile.Name}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{profile.Email}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{profile.Phonenumber}}
+              </div>
+            </div>
+            <hr>
+            {{!-- <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                (320) 380-4539
+              </div>
+            </div> --}}
+            {{!--
+            <hr> --}}
+
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="btn btn-info " target="__blank" href="/edit-profile">Edit Profile</a>                  
+                <a class="btn btn-info " target="__blank" href="/change-password">change Password</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="cta bg-image mb-3" style="background-image: url(assets/images/backgrounds/cta/bg-4.jpg);background-position: center right;">
+		            			<div class="cta-wrapper text-center">
+		            				<h3 class="cta-title" style="color: black;" >WALLET</h3><!-- End .cta-title -->
+			            			<p class="cta-desc" >YOUR BALANCE AMOUNT IS{{profile.wallet}}</p><!-- End .cta-desc -->
+                        <h5 style="color: red;">₹{{profile.wallet}}</h5>
+                        <h3>REFER AND GET 50:</h3>
+		            				<h3 class="cta-title" style="color: RED;">{{referalLink}}</h3><!-- End .cta-title -->
+		            			</div><!-- End .cta-wrapper -->
+			                </div><!-- End .cta -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <div class="row gutters-sm m-5">
+    {{#each address}}
+                <div class="col-sm-4 mb-3" style="background-color: blue;">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h5 class="d-flex align-items-center mb-3"><i class="material-icons text-warning mr-2">{{inc @index }}</i>Address</h5>
+                      <hr>
+                    <div class="row">
+                    <div class="col-sm-4">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-8 text-secondary ">
+                    <p>{{this.name}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-4 mb-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-8 text-secondary">
+                    <p>{{this.address}}</p>
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-sm-4 mb-3">
+                      <h6 class="mb-0">Town</h6>
+                    </div>
+                    <div class="col-sm-8 text-secondary ">
+                    <p>{{this.town}}</p>
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-sm-4 mb-3">
+                      <h6 class="mb-0">Pincode</h6>
+                    </div>
+                    <div class="col-sm-8 text-secondary">
+                    <p>{{this.pincode}}</p>
+                    </div>
+                  </div>
+                   <div class="row">
+                    <div class="col-sm-4 mb-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-8 text-secondary">
+                    <p>{{this.phone}}</p>
+                    </div>
+                  </div>
+                    <div class="row">
+                    <div class="col-sm-4 mb-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-8 text-secondary">
+                    <p>{{this.email}}</p>
+                    </div>
+                  </div>
+                         <div class="row">
+              <div >
+                <a class="btn btn-info " target="__blank" href="/edit-address?id={{this._id}}">Edit Address</a>                  
+                <a class="btn btn-info " target="__blank"  onclick="deleteaddress(event)" href="/delete-address?id={{this._id}}" >Delete address</a>
+              </div>
+            </div>
+ 
+                     
+                    </div>
+                  </div>
+                </div>
+   {{/each}}
+                </div>
+
+                
+
+
+

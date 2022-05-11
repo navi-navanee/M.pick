@@ -1,0 +1,52 @@
+<section>
+  
+  <div class="container">
+    <div class="container">
+      <div class="row mb-3 ">
+
+<div class="col-md-12 d-flex">
+          <div class="col-md-6"></div>
+          <div class="col-md-3">
+            </div>
+
+          <div class="col-md-3 ">
+<a class="btn btn-dark w-100" href="/admin/coupon-add">Add Offer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table  class="table caption-top" id="DataTable">
+  <caption></caption>
+  <thead>
+    <tr>
+      <th scope="col">SL No</th>
+      <th scope="col">Coupen</th>
+ <th scope="col">Start Date</th>
+ <th scope="col">End Date</th>
+ <th scope="col">offer Percentage</th>
+ <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each coupon}}
+    <tr>
+      <td scope="row">{{inc @index}}</td>
+      <td>{{this.Coupon}}</td>
+      <td>{{this.startDate}}</td>
+      <td>{{this.endDate}}</td>
+     
+      <td >{{this.Offer}}%</td>
+      
+      <td>
+        <a  href="/admin/delete-coupon?id={{this._id}}" class="btn btn-danger" onclick="" >Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
+   </div>
+</section>
+<script>
+  
+</script>

@@ -1,0 +1,49 @@
+<section>
+  <div class="container">
+    <div class="container">
+    </div>
+    <table class="table caption-top">
+  <caption></caption>
+  <a class="btn btn-dark add-product-bttn" href="/admin/add-user">Add user</a>
+  <thead style="text-align: center;">
+    <tr>
+      <th scope="col">SL No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+       <th scope="col">Phonenumber</th>
+      <th scope="col">Status</th>
+       <th scope="col">Option</th>
+        <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+    {{#each users}}
+    <tr>
+      <th scope="row" style="vertical-align: middle;">{{inc @index }}</th>
+      <td>{{this.Name}}</td>
+      <td>{{this.Email}}</td>
+      <td>{{this.Phonenumber}}</td>
+      {{#if this.Status}}
+        <td>active</td>
+        {{else}}
+        <td>block</td>
+        {{/if}}
+          <td>
+         {{#if this.Status}}
+         <a class="btn btn-danger" name="{{this.Name}}" onclick="blockuser(event)" href="/admin/blockuser/{{this._id}}">block</a>
+          </td>
+          {{else}}
+             <a class="btn btn-success" name="{{this.Name}}" onclick="unblockuser(event)" href="/admin/unblockuser/{{this._id}}">unblock</a>
+             {{/if}}
+              <td>
+           <a href="/admin/deleteuser/{{this._id}}" name="{{this.Name}}" onclick="dleateuser(event)"> <i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+              </td>
+
+    </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
+   </div>
+</section>

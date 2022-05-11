@@ -1,0 +1,429 @@
+<main class="main">
+	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+		<div class="container">
+			<h1 class="page-title">Checkout<span>Shop</span></h1>
+		</div><!-- End .container -->
+	</div><!-- End .page-header -->
+	<nav aria-label="breadcrumb" class="breadcrumb-nav">
+		<div class="container">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+				<li class="breadcrumb-item"><a href="#">Shop</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+			</ol>
+		</div><!-- End .container -->
+	</nav><!-- End .breadcrumb-nav -->
+	<div class="container">
+
+	
+	<div class="card-group cl-lg-8 ">
+		{{#each address}}
+		<div class="card">
+			<div class="card-body">
+				<p class="" style="font-size: small;color: red">Name: <span
+						style="font-size: smaller;color: black">{{this.name}}</span></p>
+				<p class="" style="font-size: small;color: red">Address: <span
+						style="font-size: smaller;color: black">{{this.address}}</span></p>
+				<p class="" style="font-size: small;color: red">Town: <span
+						style="font-size: smaller;color: black">{{this.town}}</span></p>
+				<p class="" style="font-size: small;color: red">Pincode: <span
+						style="font-size: smaller;color: black">{{this.pincode}}</span></p>
+				<p class="" style="font-size: small;color: red">Phone: <span
+						style="font-size: smaller;color: black">{{this.phone}}</span></p>
+				<p class="" style="font-size: small;color: red">Emal: <span
+						style="font-size: smaller;color: black">{{this.email}}</span></p>
+				<button
+					onclick="autofill('{{this._id}}','{{this.name}}','{{this.address}}','{{this.town}}','{{this.pincode}}','{{this.phone}}','{{this.email}}')">Choose</button>
+			</div>
+
+		</div>
+		{{/each}}
+	</div>
+	</div>
+
+
+	<div class="page-content mt-2">
+		<div class="checkout">
+			<div class="container">
+				<div class="row col-lg-8">
+					{{!-- Coupen start --}}
+					<div class="col-lg-4">
+						<div class="form-input form">
+							<input type="text" placeholder="Coupon Code" id="couponInput" name="Coupon" />
+						</div>
+						<input type="text" id="couponTotal" name="Total" value="{{total}}" hidden>
+						<button  onclick="couponApply(event)" style="height:31px; width:10rem;:margine-top:-3px; border-radius:5px;"
+							class="btn-danger">Apply</button>
+						{{!-- Error handling of coupons --}}
+						<div class="mt-2">
+							<div class="alert alert-danger" style="display: none;" id="couponUsed" role="alert">
+								This Coupon was redeemed
+							</div>
+							<div class="alert alert-danger" style="display: none;" id="couponInvalid" role="alert">
+								This Coupon is invalid
+							</div>
+							<div class="alert alert-success" style="display: none;" id="couponSuccess" role="alert">
+								Coupon Applied Successfully
+							</div>
+							<div class="alert alert-warning" style="display: none;" id="couponExpired" role="alert">
+								Sorry!!! Your Coupon has been Expired
+							</div>
+						</div>
+					</div><!-- End .checkout-discount -->
+
+
+			       <div class="col-md-4 " style="margin-left: 8rem;">
+				       <div class="cta bg-image mb-3" style="">
+		            			<div class="cta-wrapper text-center">
+		            				<h3 class="cta-title">YOUR WALLET</h3><!-- End .cta-title -->
+									<p class="cta-desc">{{profile.wallet}}</p><!-- End .cta-desc -->
+									<input type="text" id="Totalpro" name="Totalpro" value="{{total}}" hidden>
+								<div class="form-input form text-center">
+									<input type="text" placeholder="₹ Enter the amount" id="wallet" name="walletAmount"
+										style="width: 75%; height: 36px; padding-right: 1px;" />
+							 <div class="alert alert-danger" style="display: none;" id="valueNotCorrect" role="alert">
+                          Enter the Correct Amount
+                        </div>
+								</div>
+									<button  onclick="applayWallet()" style="height:31px; width:10rem;:margine-top:-3px; border-radius:5px;"
+							class="btn-danger">Apply</button>
+		            			</div><!-- End .cta-wrapper -->
+			                </div><!-- End .cta -->
+				   </div>
+				</div>
+				
+
+				<form action="#" id="checkout-form">
+					<div class="row">
+						<div class="col-lg-9">
+
+							<h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+							<div class="row">
+								<div class="col-sm-6">
+									<label>Full Name *</label>
+									<input type="text" id="name" name="name" class="form-control" required>
+								</div><!-- End .col-sm-6 -->
+							</div><!-- End .row -->
+
+							<label>Street address *</label>
+							<input type="text" id="address" name="address" class="form-control"
+								placeholder="House number and Street name" required>
+							<div class="row">
+								<div class="col-sm-6">
+									<label>Town / City *</label>
+									<input type="text" id="town" name="town" class="form-control" required>
+								</div><!-- End .col-sm-6 -->
+							</div><!-- End .row -->
+
+							<div class="row">
+								<div class="col-sm-6">
+									<label>Postcode / ZIP *</label>
+									<input type="text" id="pincode" name="pincode" class="form-control" required>
+								</div><!-- End .col-sm-6 -->
+
+								<div class="col-sm-6">
+									<label>Phone *</label>
+									<input type="tel" id="phone" name="phone" class="form-control" required>
+								</div><!-- End .col-sm-6 -->
+							</div><!-- End .row -->
+							<div>
+								<label>Email address *</label>
+								<input type="email" id="email" name="email" class="form-control">
+								<input type="text" name="userId" value="{{user._id}}" hidden>
+								<input type="text" name="addressId" id="addressId" hidden> 
+
+							</div>
+						</div><!-- End .col-lg-9 -->
+						<aside class="col-lg-3">
+							<div class="summary">
+								<h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+								<table class="table table-summary">
+									<thead>
+										<tr>
+											<th>Product</th>
+											<th>Total</th>
+										</tr>
+									</thead>
+
+									<tbody>
+									
+										<tr>
+											<td><a href="#">Actual Product Price</a></td>
+											<td id="actualPrice">{{total}}</td>
+										</tr>
+										<tr>
+											<td><p class="value" id="discountLabel" style="display: none;">Discount Price:</p></td>
+											<td >  <p class="price" id="discount" style="display: none;">₹ <span style="display: none;"></span> </p></td>
+										</tr>
+										<tr class="summary-subtotal">
+											<td>Subtotal:</td>
+											<td id="ttlprc">{{total}}</td>
+										</tr><!-- End .summary-subtotal -->
+										<tr>
+											<td>Shipping:</td>
+											<td>Free shipping</td>
+										</tr>
+										<tr class="summary-total">
+											<td>Total:</td>
+											<td  id="total">{{total}}</td>
+										</tr><!-- End .summary-total -->
+									</tbody>
+								</table><!-- End .table table-summary -->
+								
+                  
+
+								<div class="accordion-summary" id="accordion-payment">
+									<p>Payment methode</p>
+									<div>
+										<label class="radio-inline">
+											<input type="radio" name="payment-method" value="COD" checked> COD
+										</label>
+									</div>
+									<div>
+										<label class="radio-inline">
+											<input type="radio" name="payment-method" value="RAZORPAY" checked> RazorePay
+										</label>
+									</div>
+										<div>
+										<label class="radio-inline">
+											<input type="radio" name="payment-method" value="PAYPAL" checked> Paypal
+										</label>
+									</div>
+								</div><!-- End .accordion -->
+
+
+								<button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+									<span class="btn-text">Place Order</span>
+									<span id="btn" class="btn-hover-text">Proceed to Checkout</span>
+								</button>
+							</div><!-- End .summary -->
+						</aside><!-- End .col-lg-3 -->
+					</div><!-- End .row -->
+				</form>
+			</div><!-- End .container -->
+		</div><!-- End .checkout -->
+	</div><!-- End .page-content -->
+</main><!-- End .main -->
+
+
+
+<script>
+
+	$(document).ready(function () {
+
+    $("#checkout-form").validate({
+
+        rules: {
+            name: {
+                required: true,
+            },
+            address: {
+                required: true
+            },
+            town: {
+                required: true
+            },
+            pincode: {
+                required: true,
+                number: true,
+                minlength: 6,
+                maxlength: 6
+            },
+            phone: {
+                required: true,
+                number: true,
+                minlength: 10,
+                maxlength: 10,
+            },
+            email: {
+                required: true,
+                email: true
+            }
+        },
+		 submitHandler: function (form) {
+
+		
+		$.ajax({
+			url: '/place-order',
+			method: 'post',
+			data: $('#checkout-form').serialize(),
+			success: (response) => {
+				console.log(response)
+				
+				if (response.codSuccess){
+					location.href = '/ordersuccess'
+				} else if(response.razorpay){
+			
+					razorpayPayment(response)
+				}else if(response) {
+                        location.href = response.url
+                    }
+			}
+	})
+		 }
+
+    })
+
+})
+
+
+	function razorpayPayment(order) {
+		console.log(order.amount)
+		var options = {
+			"key": "rzp_test_azCUmSfuOkd3GM", // Enter the Key ID generated from the Dashboard
+			"amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+			"currency": "INR",
+			"name": "M.pick",
+			"description": "Test Transaction",
+			"image": "https://example.com/your_logo",
+			"order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+			"handler": function (response) {
+
+
+				verifyPayment(response,order)
+			},
+			"prefill": {
+				"name": "Gaurav Kumar",
+				"email": "gaurav.kumar@example.com",
+				"contact": "9999999999"
+			},
+			"notes": {
+				"address": "Razorpay Corporate Office"
+			},
+			"theme": {
+				"color": "#3399cc"
+			}
+		};
+		var rzp1 = new Razorpay(options);
+		 rzp1.open();
+	}
+
+function verifyPayment(payment,order){
+	$.ajax({
+		url:'/verify-payment',
+		data:{
+			payment,
+		order
+		},
+		method:'post',
+		success:(response)=>{
+			if(response.status){
+			location.href = '/ordersuccess'
+			}else{
+				alert("Payment failed")
+			}
+		}
+	})
+}
+
+</script>
+
+<script>
+	function autofill(addressId,name, address, town, pincode, phone, email) {
+		console.log(name)
+		document.getElementById('name').value = name;
+		document.getElementById('address').value = address;
+		document.getElementById('town').value = town;
+		document.getElementById('pincode').value = pincode;
+		document.getElementById('phone').value = phone;
+		document.getElementById('email').value = email;
+		document.getElementById('addressId').value = addressId;
+
+	}
+</script>
+
+<script>
+  
+  function couponApply(event) {
+	  event.preventDefault()
+    let couponCode = document.getElementById('couponInput').value
+    let couponTotal = document.getElementById('couponTotal').value
+    $.ajax({
+      url: '/couponApply',
+      data: {
+        Coupon: couponCode,
+        Total: couponTotal
+      },
+      method: 'post',
+      success: (response) => {
+        if (response.couponSuccess) {
+			
+			 let oldTotal = parseInt(document.getElementById("actualPrice").innerHTML)
+			let discount = oldTotal - parseInt(response.total)
+          document.getElementById('discount').innerHTML = discount;
+
+          document.getElementById("ttlprc").innerHTML = response.total
+          document.getElementById("total").innerHTML = response.total
+          document.getElementById("actualPrice").innerHTML = response.mainTotal
+          $('#couponSuccess').show()
+          $('#couponUsed').hide()
+          $('#couponInvalid').hide()
+          $('#couponExpired').hide()
+		  $('#discount').show()
+          $('#discountLabel').show()
+
+        }
+        if (response.couponUsed) {
+          $('#couponUsed').show()
+          $('#couponSuccess').hide()
+          $('#couponInvalid').hide()
+          $('#couponExpired').hide()
+          $('#discount').hide()
+          $('#discountLabel').hide()
+        }
+        if (response.invalidCoupon) {
+          $('#couponInvalid').show()
+          $('#couponSuccess').hide()
+          $('#couponUsed').hide()
+          $('#couponExpired').hide()
+          $('#discount').hide()
+          $('#discountLabel').hide()
+        }
+        if (response.couponExpired) {
+          $('#couponExpired').show()
+          $('#couponSuccess').hide()
+          $('#couponInvalid').hide()
+          $('#couponUsed').hide()
+          $('#discount').hide()
+          $('#discountLabel').hide()
+        }
+      }
+    })
+  }
+wallet
+</script>
+
+
+<script>
+  function applayWallet() {
+	  console.log("im wallett")
+    let walletval = document.getElementById('wallet').value
+    let ttlpro = document.getElementById('Totalpro').value
+    $.ajax({
+      url: '/applayWallet',
+      data: {
+        wallet: walletval,
+        Total: ttlpro
+      },
+      method: 'post',
+      success: (response) => {
+        console.log(response, response.total)
+        if (response.walletSuccess) {
+          document.getElementById('total').innerHTML = response.total;
+          document.getElementById("ttlprc").innerHTML = response.total;
+		  document.getElementById('discount').innerHTML =response.total ;
+          $('#discount').show()
+          $('#discountLabel').show()
+          $('#discounttd').show()
+
+        } else {
+          $('#valueNotCorrect').show()
+        }
+
+      }
+    })
+
+  }
+</script>
+

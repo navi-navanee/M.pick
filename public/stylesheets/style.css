@@ -1,0 +1,83 @@
+/*.............. admin side....... */
+
+#adminLogin label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+#addProductForm label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+#addCategoryForm label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+#productPage label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+#bannerSection label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+#categoryOffer label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+
+#user-signup label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+#loginOtp label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+#addNewAddress-form label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+#editNewAddress-form label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}
+#checkout-form label.error {
+    color: #FB3A3A;
+    display: block;
+    margin: 5px;
+    padding: 0;
+    text-align: left;
+}

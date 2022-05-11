@@ -1,0 +1,147 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <a>
+                <h3 style="color: black;">M.Pick</h3>
+            </a>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Dashboard</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="/admin/dashboard">Status</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="active">
+                <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Product
+                    Managment</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu1">
+                    <li>
+                        <a href="/admin/products">View Product</a>
+                    </li>
+                    <li>
+                        <a href="/admin/add-product">Add product</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">User
+                    Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="/admin/view-users">View User</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Category
+                    Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu1">
+                    <li>
+                        <a href="/admin/view-category">View Categoty</a>
+                    </li>
+                    <li>
+                        <a href="/admin/add-category">Add category</a>
+                    </li>
+                </ul>
+            </li>
+             <li>
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Product Offer Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu2">
+                    <li>
+                        <a href="/admin/productOffer-view">View Offer</a>
+                    </li>
+                    <li>
+                        <a href="/admin/productOffer-add">Add offer</a>
+                    </li>
+                </ul>
+            </li>
+             <li>
+                <a href="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Category Offer Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu3">
+                    <li>
+                        <a href="/admin/categoryOffer-view">View categoty Offer</a>
+                    </li>
+                    <li>
+                        <a href="/admin/categoryOffer-add">Add category offer</a>
+                    </li>
+                </ul>
+            </li>
+                  <li>
+                <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Banner Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu4">
+                    <li>
+                        <a href="/admin/banner-view">View Banner</a>
+                    </li>
+                    <li>
+                        <a href="/admin/banner-add">Add Banner</a>
+                    </li>
+                </ul>
+            </li>
+                  <li>
+                <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Coupon Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu5">
+                    <li>
+                        <a href="/admin/coupon-view">View coupon</a>
+                    </li>
+                    <li>
+                        <a href="/admin/coupon-add">Add coupon</a>
+                    </li>
+                </ul>
+            </li>
+              <li>
+                <a href="#pageSubmenu555" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Order Managment</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu555">
+                    <li>
+                        <a href="/admin/view-Order">View Orders</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/admin/salesreport">Sales Report</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span>Toggle Sidebar</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="fas fa-align-justify"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/admin/logout">LOGOUT</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {{{body}}}
+
+    </div>
+</div>

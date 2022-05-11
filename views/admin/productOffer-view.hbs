@@ -1,0 +1,54 @@
+<section>
+  
+  <div class="container">
+    <div class="container">
+      <div class="row mb-3 ">
+
+<div class="col-md-12 d-flex">
+          <div class="col-md-6"></div>
+          <div class="col-md-3">
+            </div>
+
+          <div class="col-md-3 ">
+<a class="btn btn-dark w-100" href="/admin/productOffer-add">Add Offer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table  class="table caption-top" id="DataTable">
+  <caption></caption>
+  <thead>
+    <tr>
+      <th scope="col">SL No</th>
+      <th scope="col">Product Name</th>
+ <th scope="col">Start Date</th>
+ <th scope="col">End Date</th>
+ <th scope="col">offer Percentage</th>
+ <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each proOffer}}
+    <tr>
+      <td scope="row">{{inc @index}}</td>
+      <td>{{this.product}}</td>
+      <td>{{this.startDate}}</td>
+      <td>{{this.endDate}}</td>
+     
+      <td >{{this.percentage}}%</td>
+      
+      <td>
+        <a  href="/admin/delete-productOffer?id={{this._id}}" class="btn btn-danger"  onclick="" name="{{this.Name}}" >Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
+   </div>
+</section>
+<script>
+  
+</script>
+
+

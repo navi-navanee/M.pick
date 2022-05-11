@@ -1,0 +1,50 @@
+
+<footer class="footer mt-3">
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="widget widget-about">
+                        <img src="assets/images/demos/demo-3/logo.png" class="footer-logo" alt="Footer Logo" width="50"
+                            height="50">
+                        <p>The perfect website for the 1000 of verity product...Choose your favourite one from our
+                            website </p>
+
+                        <div class="widget-call">
+                            <i class="icon-phone"></i>
+                            Got Question? Call us 24/7
+                            <a href="tel:#">+91 9497502035</a>
+                        </div><!-- End .widget-call -->
+                    </div><!-- End .widget about-widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="widget">
+                        <h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="">About Us</a></li>
+                            <li><a href="/vieworder">Order status</a></li>
+                            <li><a href="/cart">Cart</a></li>
+                            <li><a href="/contact">Contact us</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="widget">
+                        <h4 class="widget-title">All Category</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                              {{#each category}}
+                            <li><a href="/all-product?name={{this.Category1}}">{{{this.Category1}}}</a></li>
+                            {{/each}}
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-6 col-lg-3 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .footer-middle -->
+</footer><!-- End .footer -->
+</div><!-- End .page-wrapper -->

@@ -1,0 +1,66 @@
+<section>
+  <div class="container-fluid mt-4">
+          <div class="add-product-top">
+    <div class="row">
+      <div class="col-md-6">
+        <h2 class="text-center add-product-headding">Add Category Offer</h2>
+        <form
+          action="/admin/categoryOffer-add"
+          method="post"
+           enctype="multipart/form-data"
+           id="categoryOffer"
+        >
+          <label for="">Products</label><br>
+          <select  class="selectpicker product-add-catagory" style="width: 100%;height:35px" name="category" id="">
+            <option value="">select a Product</option>
+            {{#each category}}
+            <option value="{{this.Category1}}">{{this.Category1}}</option>
+            {{/each}}
+          </select><br><br>
+
+          <label for="">Starting Date</label>
+          <input type="date" name="startDate" class="form-control" id="str" /><br>
+          <label for="">Expiry Date</label>
+          <input type="date" name="endDate" class="form-control"  id="str" /><br>
+
+          
+
+          <label for="">Offer Percentage</label>
+          <input type="text" name="percentage" class="form-control" placeholder="Enter the offer Percentage" />
+          <button type="submit" class="btn-success mt-4 product-add-submit">Submit</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        let today = new Date()
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1;
+
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+
+        $('#str').attr('min', today)
+
+
+        $('#str').change(function () {
+            let date = document.getElementById('str').value
+            $('#exp').attr('min', date)
+        })
+
+    })
+</script>
