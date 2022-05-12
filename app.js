@@ -9,7 +9,7 @@ var usersRouter = require('./routes/user');
 var adminRouter = require('./routes/admin');
 
 var app = express();
-var fileUpload=require('express-fileUpload')
+var fileUpload=require('express-fileupload')
 var db=require('./config/connection ')
 var session=require('express-session')
 // view engine setup

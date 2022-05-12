@@ -386,8 +386,8 @@ router.post('/place-order',async(req,res)=>{
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/success",
-            "cancel_url": "http://localhost:3000/cancel"
+            "return_url": "http://mpick.shop/success",
+            "cancel_url": "http://mpick.shop/cancel"
         },
         "transactions": [{
             "item_list": {
@@ -493,7 +493,7 @@ router.get('/myaccount',verifyLogin,async(req,res)=>{
     let user = await adminHelpers.getUserdetails(user1);
     let refer=user.refer
     let wallet=user.wallet
-    let referalLink = "http://localhost:3000/signup?refer="+refer
+    let referalLink = "https://mpick.shop/signup?refer="+refer
 
 
 
