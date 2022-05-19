@@ -246,7 +246,6 @@ router.post('/edit-category/', verifyAdminLogin, (req, res) => {
 
 router.get('/view-order', verifyAdminLogin, (req, res) => {
   adminHelpers.getallOrders().then((orders) => {
-
     res.render('admin/view-order', { admin: true, orders })
   })
 })
@@ -282,7 +281,6 @@ router.get('/placedOrder', verifyAdminLogin, (req, res) => {
 router.get('/salesreport', verifyAdminLogin, (req, res) => {
   adminHelpers.getallOrders().then((orders) => {
     adminHelpers.dashboard().then((data) => {
-      console.log("dataaaa....",data);
       res.render('admin/salesreport', {admin:true, orders, data })
     })
 

@@ -68,7 +68,7 @@ module.exports = {
           // Chech the referal Code
           checkReferal: (referal) => {
             return new Promise(async (res, rej) => {
-              let refer = await db.get().collection(collections.USER_COLLECTION).find({ refer: referal }).toArray();
+              let refer = await db.get().collection(collections.USER_COLLECTION).find({ refer: referal}).toArray();
               if(refer){
                   res(refer)
               }else{

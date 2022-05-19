@@ -27,19 +27,19 @@
                             <td>{{this.totalAmount}} <br>{{this.paymentMethod}} </td>
                             <td>{{this.status}}</td>
                             <td>
-                               
-                                <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="false">
-    {{this.status}}
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=placed">placed</a>
-    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=canceled">canceled</a>
-    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=shipped">shipped</a>
-     <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=delivered">Delivered</a>
-  </div>
-</div>
+                            <div class="dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                                    aria-expanded="false">
+                                    {{this.status}}
+                                </a>
+                            
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=placed">placed</a>
+                                    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=canceled">canceled</a>
+                                    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=shipped">shipped</a>
+                                    <a class="dropdown-item" href="/admin/placedOrder?id={{this._id}}&name=delivered">Delivered</a>
+                                </div>
+                            </div>
                             
                             </td>
                         </tr>
