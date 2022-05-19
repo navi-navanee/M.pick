@@ -18,6 +18,7 @@
                             <th scope="col">Amount</th>
                             <th scope="col">Payment</th>
                             <th scope="col">Status</th>
+                              <th scope="col">Offer</th>
                             <th class="text-center" scope="col">Option</th>
                             
                         </tr>
@@ -32,6 +33,12 @@
                             <td>{{this.totalAmount}}</td>
                             <td>{{this.paymentMethod}}</td>
                             <td>{{this.status}}</td>
+
+                                  {{#if offerapply}}
+                            <td>Wallet: {{this.offerapply}}</td>
+                            {{else}}
+                            <td>wallet: NULL</td>
+                            {{/if}}
                             <td>
                                 {{#if cancel}}
                                 <a class="btn btn-info btn-sm " target="__blank" href="/view-order?id={{this._id}}">View Order</a>
@@ -41,6 +48,7 @@
                                
                                 <a class="btn btn-info btn-sm " target="__blank" href="/view-order?id={{this._id}}">View Order</a>
                                 {{/if}}
+
                             </td>
                         </tr>
                         {{/each}}

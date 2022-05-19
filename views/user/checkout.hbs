@@ -177,6 +177,9 @@
 										<tr class="summary-total">
 											<td>Total:</td>
 											<td id="total">{{total}}</td>
+											
+											<input type="text" id="walletdiscount" name="walletdiscount" value="{{walletAmount}}" hidden>
+												<input type="text" id="cdiscount" name="coupondiscount" value="{{walletAmount}}" hidden>
 										</tr><!-- End .summary-total -->
 									</tbody>
 								</table><!-- End .table table-summary -->
@@ -357,14 +360,18 @@
 			method: 'post',
 			success: (response) => {
 				if (response.couponSuccess) {
+					console.log("..............",response.couponSuccess)
 
 					let oldTotal = parseInt(document.getElementById("actualPrice").innerHTML)
 					let discount = oldTotal - parseInt(response.total)
+					let cAmount= parseInt(response.discountVal)
 					document.getElementById('discount').innerHTML = discount;
 
 					document.getElementById("ttlprc").innerHTML = response.total
 					document.getElementById("total").innerHTML = response.total
 					document.getElementById("actualPrice").innerHTML = response.mainTotal
+					document.getElementById("cdiscount").innerHTML = cAmount;
+					console.log("heiiiii",cAmount)
 					$('#couponSuccess').show()
 					$('#couponUsed').hide()
 					$('#couponInvalid').hide()
@@ -422,6 +429,10 @@
 					document.getElementById('total').innerHTML = response.total;
 					document.getElementById("ttlprc").innerHTML = response.total;
 					document.getElementById('discount').innerHTML = response.total;
+					
+					document.getElementById('walletdiscount').innerHTML = response.walletAmount;
+					
+				
 					$('#discount').show()
 					$('#discountLabel').show()
 					$('#discounttd').show()

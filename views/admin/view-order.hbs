@@ -15,6 +15,9 @@
                             <th scope="col">Address</th>
                             <th scope="col">Amount</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Offer</th>
+          
+
                             <th class="text-center" scope="col">Option</th>
                             
                         </tr>
@@ -26,6 +29,11 @@
                             <td>{{this.deliveryDetails.address}},{{this.deliveryDetails.pincode}} <br>{{this.deliveryDetails.mobile}} </td>
                             <td>{{this.totalAmount}} <br>{{this.paymentMethod}} </td>
                             <td>{{this.status}}</td>
+                            {{#if offerapply}}
+                            <td>{{this.offerapply}}</td>
+                            {{else}}
+                            <td>NULL</td>
+                            {{/if}}
                             <td>
                             <div class="dropdown">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"

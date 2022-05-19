@@ -303,7 +303,7 @@ module.exports = {
     },
     placeOrder: (order, products, total) => {
         return new Promise((resolve, reject) => {
-            console.log(order, products, total);
+            console.log("mmmmmmmmmmmmm",order, products, total);
             let dat=moment(new Date()).format('YYYY/MM/DD')
             let status = order['payment-method'] === 'COD' ? 'placed' : 'pending'
             let orderObj = {
@@ -317,6 +317,8 @@ module.exports = {
                 paymentMethod: order['payment-method'],
                 products: products,
                 totalAmount: total,
+                offerapply:order.walletAmount,
+                coupenAmount:order.coupondiscount,
                 status: status,
                 date: dat
             }
@@ -347,7 +349,7 @@ module.exports = {
     getUserOrders: (userId) => {
         return new Promise(async (resolve, reject) => {
             let orders = await db.get().collection(collections.ORDER_COLLECTION)
-                .find({ userId: objectId(userId) }).toArray()
+                .find({ userId: objectId(userId) }).sort({$natural:-1}).toArray()
             console.log(orders)
             resolve(orders)
         })
@@ -531,7 +533,7 @@ module.exports = {
                     $project: {
                         item: 1, quantity: 1, product: { $arrayElemAt: ['$product', 0] }
                     }
-                }
+                },
 
             ]).toArray()
             console.log("BOss",product);
@@ -809,6 +811,7 @@ module.exports = {
                                 let discountVal = ((total * percentage)/100).toFixed()
                                 obj.total = total - discountVal
                                 obj.success = true
+                                obj.discountVal=discountVal
                                 obj.mainTotal=total
                                 console.log(percentage);
                                 console.log(discountVal);

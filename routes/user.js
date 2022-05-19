@@ -358,6 +358,7 @@ router.post('/place-order',async(req,res)=>{
   }
 
   userHelpers.placeOrder(req.body,products,total).then((orderId)=>{
+    console.log("seyyyyyyyyyyyy",req.body);
     req.session.orderId=orderId
     if(req.body['payment-method']==='COD'){
       res.json({codSuccess:true})   
@@ -660,13 +661,15 @@ router.get('/edit-address',verifyLogin,async(req,res)=>{
 
   router.post("/couponApply", (req, res) => {
     let id = req.session.user._id;
-
+    let body=req.body
+    
     userHelpers.couponValidate(req.body, id).then((response) => {
+      console.log("im coupenn..................",response);
 
       req.session.couponTotal = response.total;
       if (response.success) {
         let mainTotal=response.mainTotal
-        res.json({ couponSuccess: true, total: response.total,mainTotal });
+        res.json({ couponSuccess: true, total: response.total,mainTotal,discountVal:response.discountVal});
       } else if (response.couponUsed) {
         res.json({ couponUsed: true });
       } else if (response.couponExpired) {
@@ -688,9 +691,10 @@ router.post("/applayWallet", async (req, res) => {
   if (userDetails.wallet >= walletAmount) {
     let total = ttl - walletAmount;
     
+    
     req.session.walltotel=total;
     userHelpers.applayWallet(walletAmount,user).then(() => {
-      res.json({ walletSuccess: true, total});
+      res.json({ walletSuccess: true, total,walletAmount});
       console.log("IM current",total);
     });
   } else {

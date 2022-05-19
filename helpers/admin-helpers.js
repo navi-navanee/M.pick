@@ -123,7 +123,7 @@ module.exports={
     getallOrders:()=>{
 
         return new Promise(async(resolve,redirect)=>{
-            let data=await db.get().collection(collections.ORDER_COLLECTION).find().toArray()
+            let data=await db.get().collection(collections.ORDER_COLLECTION).find().sort({$natural:-1}).toArray()
             resolve(data)
 
         })
